@@ -20,8 +20,8 @@ export default function Dashboard() {
               <Button variant="outline" className="text-[#17a19a] border-[#17a19a] hover:bg-[#f1f8f7]">View Calendar</Button>
             </div>
             <div className="flex gap-4">
-              <Button variant="secondary" className="bg-[#17a191] text-white hover:bg-[#138f84]">Scheduled Post</Button>
-              <Button variant="ghost" className="bg-cyan-100 hover:bg-cyan-200">Recent Post</Button>
+              <Button variant="secondary" className="bg-[#17a191] text-white hover:bg-[#138f84]">Recent Post</Button>
+              <Button variant="ghost" className="bg-cyan-100 hover:bg-cyan-200">Scheduled Post</Button>
             </div>
           </div>
 
@@ -68,11 +68,22 @@ export default function Dashboard() {
           </div>
 
           {/* Help Section */}
-          <div className="bg-[#17a19a] text-white shadow-md rounded-lg p-6">
-            <h3 className="text-lg font-semibold mb-4">Need Help?</h3>
-            <p className="text-sm mb-4">📧 Mail Us: <a href="mailto:xyz@gmail.com" className="text-blue-500 underline">xyz@gmail.com</a></p>
-            <Button variant="link" className="bg-white text-[#17a19a] hover:bg-[#f1f8f7]">Help Center</Button>
-          </div>
+          <section className="bg-[#17a19a] text-white shadow-md rounded-lg p-6">
+      <h3 className="text-lg font-semibold mb-4">Need Help?</h3>
+      <p className="text-sm mb-4">
+        📧 Mail Us:{" "}
+        <a href="mailto:support@example.com" className="text-blue-100 underline">
+          support@example.com
+        </a>
+      </p>
+      <Button
+        variant="link"
+        className="bg-white text-[#17a19a] hover:bg-[#f1f8f7]"
+        onClick={() => window.open("/help", "_blank")}
+      >
+        Help Center
+      </Button>
+    </section>
         </div>
       </div>
     </div>
