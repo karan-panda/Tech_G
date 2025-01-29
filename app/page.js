@@ -59,9 +59,12 @@ function Hero() {
               Schedule, publish, and analyze your content across multiple
               platforms from one dashboard.
             </p>
-            <Button size="lg" className="mb-8">
-              Get Started
-            </Button>
+            <Link href="/dashboard">
+              <Button size="lg" className="mb-8">
+                Get Started
+              </Button>
+            </Link>
+            
           </div>
         </div>
         <div className="m-7">
@@ -213,9 +216,12 @@ function CTA() {
           Join thousands of marketers and content creators who trust
           SocialSprout.
         </p>
+        <Link href="/dashboard">
         <Button size="lg" variant="secondary" >
           Get started
-        </Button>
+        </Button> 
+        </Link>
+        
       </div>
     </section>
   );
