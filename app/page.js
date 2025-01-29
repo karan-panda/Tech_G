@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronUp } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import { Sprout, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { Calendar, BarChart2, Globe, Clock } from "lucide-react";
+import { Calendar, BarChart2, Globe, Bot } from "lucide-react";
 import Image from "next/image";
 
 
@@ -59,9 +59,12 @@ function Hero() {
               Schedule, publish, and analyze your content across multiple
               platforms from one dashboard.
             </p>
-            <Button size="lg" className="mb-8">
-              Get Started
-            </Button>
+            <Link href="/dashboard">
+              <Button size="lg" className="mb-8">
+                Get Started
+              </Button>
+            </Link>
+            
           </div>
         </div>
         <div className="m-7">
@@ -99,10 +102,10 @@ const features = [
       "Manage all your social media accounts from one centralized dashboard.",
   },
   {
-    icon: <Clock className="h-6 w-6 text-green-600" />,
-    title: "Auto-Scheduling",
+    icon: <Bot className="h-6 w-6 text-green-600" />,
+    title: "Content Suggestions",
     description:
-      "Let our AI determine the best times to post for maximum engagement.",
+      "AI-Powered content suggestions and post ideas to keep your audience engaged",
   },
 ];
 
@@ -213,9 +216,12 @@ function CTA() {
           Join thousands of marketers and content creators who trust
           SocialSprout.
         </p>
+        <Link href="/dashboard">
         <Button size="lg" variant="secondary" >
           Get started
-        </Button>
+        </Button> 
+        </Link>
+        
       </div>
     </section>
   );
