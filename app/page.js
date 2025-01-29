@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/button";
 import Link from "next/link";
 import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Sprout, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Calendar, BarChart2, Globe, Clock } from "lucide-react";
 import Image from "next/image";
@@ -12,6 +13,13 @@ import Image from "next/image";
 
 // Header component
 function Header() {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="py-4 px-6 bg-white shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
@@ -20,15 +28,12 @@ function Header() {
           <span className="text-xl font-bold text-gray-800">SocialSprout</span>
         </Link>
         <nav className="hidden md:flex space-x-4">
-          <Link href="#features" className="text-gray-600 hover:text-gray-800">
+          <button onClick={() => scrollToSection("features")} className="text-gray-600 hover:text-black">
             Features
-          </Link>
-          <Link href="#faq" className="text-gray-600 hover:text-gray-800">
+          </button>
+          <button onClick={() => scrollToSection("faq")} className="text-gray-600 hover:text-black">
             FAQ
-          </Link>
-          {/* <Link href="#" className="text-gray-600 hover:text-gray-800">
-            Pricing
-          </Link> */}
+          </button>
         </nav>
         <div className="flex space-x-2">
           <Button variant="outline">Log In</Button>
@@ -38,6 +43,7 @@ function Header() {
     </header>
   );
 }
+
 
 // Hero component
 function Hero() {
@@ -150,6 +156,12 @@ const faqs = [
 ];
 
 function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section id="faq" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -158,13 +170,29 @@ function FAQ() {
         </h2>
         <div className="w-full max-w-2xl mx-auto">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-4">
-              <div className="bg-green-100 p-4 rounded-md mb-2">
-                <h3 className="text-l font-semibold text-gray-800">
+            <div key={index} className="mb-4 border-b border-gray-300">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex justify-between items-center bg-green-100 p-4 rounded-md transition-all duration-500 ease-in-out"
+              >
+                <h3 className="text-lg font-semibold text-gray-800">
                   {faq.question}
                 </h3>
+                <ChevronDown
+                  className={`h-5 w-5 text-green-600 transition-transform duration-300 ${
+                    openIndex === index ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <p className="text-gray-600 p-4 bg-white rounded-md">
+                  {faq.answer}
+                </p>
               </div>
-              <p className="text-gray-600">{faq.answer}</p>
             </div>
           ))}
         </div>
