@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Landing from "@/app/page";
 import {
   Home,
   Calendar,
@@ -12,6 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  Sprout
 } from "lucide-react";
 import { FaReddit, FaXTwitter, FaPinterest } from "react-icons/fa6";
 
@@ -61,7 +63,13 @@ const Sidebar = () => {
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between p-4">
           <span className={`font-bold text-xl ${!isOpen ? "hidden" : "block"}`}>
-            Logo
+            <Link href="/">
+              <div className="flex items-end space-x-2">
+                <Sprout className="h-8 w-8 text-green-600" />
+                <div className="text-l font-bold text-gray-800">SocialSprout</div>
+              </div>
+            </Link>
+            
           </span>
           <button
             onClick={toggleSidebar}
