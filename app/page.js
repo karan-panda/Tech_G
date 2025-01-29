@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronUp } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 import { Sprout, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { Calendar, BarChart2, Globe, Clock } from "lucide-react";
+import { Calendar, BarChart2, Globe, Bot } from "lucide-react";
 import Image from "next/image";
 
 
@@ -99,10 +99,10 @@ const features = [
       "Manage all your social media accounts from one centralized dashboard.",
   },
   {
-    icon: <Clock className="h-6 w-6 text-green-600" />,
-    title: "Auto-Scheduling",
+    icon: <Bot className="h-6 w-6 text-green-600" />,
+    title: "Content Suggestions",
     description:
-      "Let our AI determine the best times to post for maximum engagement.",
+      "AI-Powered content suggestions and post ideas to keep your audience engaged",
   },
 ];
 
