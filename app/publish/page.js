@@ -15,6 +15,8 @@ export default function PublishModal() {
   const [open, setOpen] = useState(false)
   const [selectedAccounts, setSelectedAccounts] = useState([])
   const [date, setDate] = useState()
+  const [showAIInput, setShowAIInput] = useState(false)  // New state to toggle AI input box visibility
+  const [aiPrompt, setAIPrompt] = useState("")  // State to hold the AI prompt text
 
   const editor = useEditor({
     extensions: [StarterKit],
@@ -108,11 +110,26 @@ export default function PublishModal() {
             <div className="flex-1 lg:px-6">
               <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold">Your Post</h1>
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 gap-2">
+                <Button
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105 gap-2"
+                  onClick={() => setShowAIInput(!showAIInput)}  // Toggle AI input visibility
+                >
                   <Sparkles className="h-5 w-5" />
                   Generate with AI
                 </Button>
               </div>
+
+              {showAIInput && (
+                <div className="mb-6">
+                  <Input
+                    placeholder="Enter AI prompt"
+                    value={aiPrompt}
+                    onChange={(e) => setAIPrompt(e.target.value)}  // Update AI prompt state
+                    className="mb-2"
+                  />
+                  <Button className="w-full bg-[#17A191] hover:bg-[#148A7E]">Generate AI Content</Button>
+                </div>
+              )}
 
               <EditorContent editor={editor} className="min-h-[200px] border rounded-lg p-4 mb-6" />
 
