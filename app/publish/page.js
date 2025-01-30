@@ -10,6 +10,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Sparkles, X } from "lucide-react"
 import { format } from "date-fns"
+import { Herr_Von_Muellerhoff } from "next/font/google"
+import Link from "next/link"
 
 export default function PublishModal() {
   const [isOpen, setIsOpen] = useState(true)
@@ -58,8 +60,8 @@ export default function PublishModal() {
           {/* Header with Close Button */}
           <div className="flex justify-between items-center mb-4 sticky top-0 bg-white z-10 pb-4 border-b">
             <h2 className="text-2xl font-bold">Publish Post</h2>
-            <button onClick={() => setIsOpen(false)}>
-              <X className="h-6 w-6 text-gray-500 hover:text-gray-700" />
+            <button onClick={() => setIsOpen(false)} >
+              <Link href = "/calendar"><X className="h-6 w-6 text-gray-500 hover:text-gray-700" /></Link>
             </button>
           </div>
 

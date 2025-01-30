@@ -99,12 +99,12 @@ export function EventModal({ isOpen, onClose, onSubmit, onDelete, event, selecte
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{event ? "Edit Event" : "Create New Event"}</DialogTitle>
+          <DialogTitle>{event ? "Edit Post" : "Create New Post"}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="title" className="text-sm font-medium">
-              Event Title
+              Post Title
             </label>
             <Input
               id="title"
@@ -191,7 +191,7 @@ export function EventModal({ isOpen, onClose, onSubmit, onDelete, event, selecte
             <div className="flex items-center space-x-2">
               <Switch id="private" checked={isPrivate} onCheckedChange={setIsPrivate} />
               <label htmlFor="private" className="text-sm font-medium">
-                Private Event
+                Private Post
               </label>
             </div>
           </div>
@@ -206,7 +206,7 @@ export function EventModal({ isOpen, onClose, onSubmit, onDelete, event, selecte
               <Button variant="outline" type="button" onClick={onClose}>
                 Cancel
               </Button>
-              <Button type="submit">{event ? "Save Changes" : "Create Event"}</Button>
+              <Button type="submit">{event ? "Save Changes" : "Create Post"}</Button>
             </div>
           </div>
         </form>
@@ -215,9 +215,9 @@ export function EventModal({ isOpen, onClose, onSubmit, onDelete, event, selecte
       <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Delete Event</DialogTitle>
+            <DialogTitle>Delete Post</DialogTitle>
           </DialogHeader>
-          <p>Are you sure you want to delete this event?</p>
+          <p>Are you sure you want to delete this post?</p>
           <div className="flex justify-end space-x-2">
             <Button variant="outline" onClick={() => setShowDeleteConfirm(false)}>
               Cancel

@@ -118,7 +118,7 @@ export function Calendar() {
     setIsModalOpen(true)
   }}>
     <Plus className="h-4 w-4 mr-2" />
-    Create Event
+    Create Post
   </Button>
   <Button variant="destructive" onClick={() => setShowResetConfirm(true)}>
     <Trash2 className="h-4 w-4 mr-2" />
@@ -166,7 +166,7 @@ export function Calendar() {
       {isWarningModalOpen && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-4 rounded-lg">
-            <h2 className="text-lg font-semibold mb-2">Are you sure you want to reset all events?</h2>
+            <h2 className="text-lg font-semibold mb-2">Are you sure you want to reset all the scheduled posts?</h2>
             <p className="mb-4 text-sm">This action cannot be undone.</p>
             <div className="flex justify-end space-x-2">
               <Button variant="outline" onClick={() => setIsWarningModalOpen(false)}>Cancel</Button>
@@ -180,7 +180,7 @@ export function Calendar() {
     <DialogHeader>
       <DialogTitle>Reset Calendar</DialogTitle>
     </DialogHeader>
-    <p>Are you sure you want to reset the calendar? This will delete all events.</p>
+    <p>Are you sure you want to reset the calendar? This will delete all your scheduled posts.</p>
     <div className="flex justify-end space-x-2">
       <Button variant="outline" onClick={() => setShowResetConfirm(false)}>
         Cancel
