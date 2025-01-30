@@ -15,7 +15,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 space-y-6">
           <div className="flex justify-between">
             <div className="flex gap-4">
-              <Button variant="solid" className="bg-[#17a19a] hover:bg-[#138f85] text-white">Create</Button>
+              <Button variant="solid" className="bg-[#17a19a] hover:bg-[#138f85] text-white" href="/publish">Create</Button>
               <Button variant="outline" className="text-[#17a19a] border-[#17a19a] hover:bg-[#f1f8f7]">View Calendar</Button>
             </div>
             <div className="flex gap-4">

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Instagram, Linkedin } from "lucide-react";
 import Landing from "@/app/page";
 import {
   Home,
@@ -18,7 +19,7 @@ import {
 import { FaReddit, FaXTwitter, FaPinterest } from "react-icons/fa6";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const pathname = usePathname(); // Get current path
 
@@ -28,9 +29,9 @@ const Sidebar = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
-        setIsOpen(false);
-      } else {
         setIsOpen(true);
+      } else {
+        setIsOpen(false);
       }
     };
 
@@ -42,14 +43,14 @@ const Sidebar = () => {
 
   const menuItems = [
     { name: "Dashboard", icon: Home, path: "/dashboard" },
-    { name: "Scheduler", icon: Calendar, path: "/scheduler" },
+    { name: "Scheduler", icon: Calendar, path: "/calendar" },
     {
       name: "Social Media",
       icon: Users,
       sub: [
-        { name: "Reddit", icon: FaReddit, path: "/social/reddit" },
-        { name: "Twitter", icon: FaXTwitter, path: "/social/twitter" },
-        { name: "Pinterest", icon: FaPinterest, path: "/social/pinterest" },
+        { name: "Instagram", icon: Instagram, path: "https://www.instagram.com/adi.tya_p/" },
+        { name: "Twitter", icon: FaXTwitter, path: "https://x.com/KaranPanda_" },
+        { name: "Linkedin", icon: Linkedin, path: "https://www.linkedin.com/in/aditya-palande-573b292a9/" },
       ],
     },
   ];
@@ -106,12 +107,12 @@ const Sidebar = () => {
                     )}
                   </button>
                   {activeMenu === item.name && isOpen && (
-                    <div className="bg-[#148A7E] py-2">
+                    <div className="white py-2">
                       {item.sub.map((subItem) => (
-                        <Link key={subItem.name} href={subItem.path}>
+                        <Link key={subItem.name} href={subItem.path} target="_blank">
                           <button
-                            className={`flex items-center w-full pl-12 pr-4 py-2 hover:bg-[#17A191] transition-colors ${
-                              pathname === subItem.path ? "bg-[#17A191]" : ""
+                            className={`flex items-center w-full pl-12 pr-4 py-2 hover:bg-[#17A191]  transition-colors ${
+                              pathname === subItem.path ? "bg-[#caf2f2]" : ""
                             }`}
                           >
                             <subItem.icon size={16} />
